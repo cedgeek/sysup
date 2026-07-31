@@ -27,6 +27,7 @@ while true; do
     clear
     echo "========================================="
     echo "       Update Manager - Ubuntu           "
+    echo "   https://github.com/cthonney/sysup     "
     echo "========================================="
     echo "1) Update APT (OS & base packages)"
     echo "2) Update SNAP"
