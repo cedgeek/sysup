@@ -14,7 +14,9 @@ curl -sL "$URL_SCRIPT" -o "$DEST_FILE"
 chmod +x "$DEST_FILE"
 
 echo "[+] Checking shell environment..."
-USER_SHELL=$(basename "$SHELL")
+# Détection blindée : on lit le shell de connexion de l'utilisateur, on esquive le subshell bash
+USER_SHELL_PATH=$(getent passwd "$USER" | cut -d: -f7)
+USER_SHELL=$(basename "$USER_SHELL_PATH")
 
 if [ "$USER_SHELL" = "bash" ]; then
     RC_FILE="$HOME/.bashrc"
@@ -39,4 +41,5 @@ else
     echo "[-] $RC_FILE not found. Create it and add: alias $ALIAS_NAME='$DEST_FILE'"
 fi
 
-echo "[+] Setup finished. Reload shell (exec \$SHELL) and use '$ALIAS_NAME'."
+# Le message de fin s'adapte dynamiquement à zsh ou bash
+echo "[+] Setup finished. Reload shell (exec $USER_SHELL) and use '$ALIAS_NAME'."
