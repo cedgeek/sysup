@@ -16,9 +16,33 @@
 > [!WARNING]  
 > **Zero-prompt updates:** Once you select an option in the menu, updates are fully automatic. The script uses `-y` flags (e.g., `apt upgrade -y`, `flatpak update -y`) to bypass all manual installation confirmations.
 
+> [!NOTE]  
+> **Privileges required:** The script will prompt for your `sudo` password when executing APT or Snap updates. 
+
 ## 🚀 One-Line Installation
 
 Run the following command. The setup is fully automated:
 
 ```bash
-curl -sL [https://raw.githubusercontent.com/cthonney/sysup/main/install.sh](https://raw.githubusercontent.com/cthonney/sysup/main/install.sh) | bash
+https://raw.githubusercontent.com/cthonney/sysup/main/install.sh | bash
+```
+⚙️ Under the Hood
+-----------------
+
+What the install.sh script does behind the scenes:
+
+*   📁 Creates the ~/.local/bin directory if it doesn't exist.
+    
+*   ⬇️ Downloads the update-manager script directly from this repository.
+    
+*   🔑 Applies the correct execution permissions (chmod +x).
+    
+*   🐚 Detects your default login shell (Bash or Zsh).
+    
+*   🔗 Injects the sysup alias seamlessly into your ~/.bashrc or ~/.zshrc.
+    
+
+👨‍💻 Credits
+-------------
+
+Cédric ([@cthonney](https://github.com/cthonney)).
