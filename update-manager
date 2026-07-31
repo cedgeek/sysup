@@ -1,0 +1,67 @@
+#!/bin/bash
+
+update_apt() {
+    echo -e "\n[+] Starting APT update..."
+    sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean
+}
+
+update_snap() {
+    echo -e "\n[+] Starting SNAP update..."
+    if command -v snap &> /dev/null; then
+        sudo snap refresh
+    else
+        echo "[-] Snap is not installed on this system."
+    fi
+}
+
+update_flatpak() {
+    echo -e "\n[+] Starting FLATPAK update..."
+    if command -v flatpak &> /dev/null; then
+        flatpak update -y
+    else
+        echo "[-] Flatpak is not installed on this system."
+    fi
+}
+
+while true; do
+    clear
+    echo "========================================="
+    echo "       Update Manager - Ubuntu           "
+    echo "========================================="
+    echo "1) Update APT (OS & base packages)"
+    echo "2) Update SNAP"
+    echo "3) Update FLATPAK"
+    echo "4) Update ALL (Apt + Snap + Flatpak)"
+    echo "5) Exit"
+    echo "========================================="
+    read -p "Choose an option [1-5]: " choice
+
+    case $choice in
+        1) 
+            update_apt
+            read -p "Press Enter to continue..." 
+            ;;
+        2) 
+            update_snap
+            read -p "Press Enter to continue..." 
+            ;;
+        3) 
+            update_flatpak
+            read -p "Press Enter to continue..." 
+            ;;
+        4) 
+            update_apt
+            update_snap
+            update_flatpak
+            read -p "Press Enter to continue..."
+            ;;
+        5) 
+            echo "Bye."
+            exit 0 
+            ;;
+        *) 
+            echo "Invalid choice."
+            sleep 1 
+            ;;
+    esac
+done
