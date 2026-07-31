@@ -1,11 +1,12 @@
 # Ubuntu Update Manager
 
 A simple, interactive bash script to manage APT, Snap, and Flatpak updates from a single menu. 
-Automatically creates a global `sysup` alias for quick access in Bash and Zsh.
+
+⚠️ **Zero-prompt updates:** Once you select an option in the menu, the updates are **fully automatic**. The script uses the `-y` flags (`apt upgrade -y`, `flatpak update -y`, etc.), so it will never pause to ask for installation confirmations.
 
 ## One-Line Installation
 
-Run the following command to fetch the script, make it executable, and configure your aliases:
+Run the following command. The setup is also **fully automated**.
 
 ```bash
 curl -sL https://raw.githubusercontent.com/cthonney/sysup/main/install.sh | bash
