@@ -24,8 +24,7 @@
 Run the following command. The setup is fully automated:
 
 ```bash
-https://raw.githubusercontent.com/cthonney/sysup/main/install.sh | bash
-```
+curl -sL https://raw.githubusercontent.com/cthonney/sysup/main/install.sh | bash```
 ⚙️ Under the Hood
 -----------------
 
