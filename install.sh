@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Configuration
 URL_SCRIPT="https://raw.githubusercontent.com/cthonney/sysup/main/update-manager"
 DEST_DIR="$HOME/.local/bin"
