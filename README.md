@@ -9,3 +9,5 @@ Run the following command to fetch the script, make it executable, and configure
 
 ```bash
 curl -sL https://raw.githubusercontent.com/cthonney/sysup/main/install.sh | bash
+```
+Maintained by Cédric (@cthonney).
