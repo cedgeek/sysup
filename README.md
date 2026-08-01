@@ -45,4 +45,4 @@ What the install.sh script does behind the scenes:
 👨‍💻 Credits
 -------------
 
-Cédric ([@cthonney](https://github.com/cthonney)).
+Cédric ([@cthonney](https://github.com/cedgeek)).
